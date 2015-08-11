@@ -1,0 +1,23 @@
+<div class="content">
+
+    <% @item.each do |item| %>
+      <div class="block">
+          <h4 align ="center"><%= item.title %></h4>
+        <div class="images">
+
+                        <% if !item.assets[0].nil?%>
+                            <a href="<%= item_path(item) %>"><%= image_tag item.assets[0].image(:small), :class => "style_image" %></a>
+                            <% else %>
+                            <a href="<%= item_path(item) %>"><%=  image_tag "soviet.jpg", :class => "style_image"  %></a>
+                        <% end %>
+                        <br>
+
+        </div>
+      </div>
+    <% end %>
+
+</div>
+<div class="new_item">
+
+    <a href="items/new">Новый элемент</a>
+</div>

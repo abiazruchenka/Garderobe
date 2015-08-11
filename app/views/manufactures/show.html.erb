@@ -1,0 +1,18 @@
+<div class="content">
+    <p><h4 align="center"><%= @manufacture.name%></h4></p>
+
+    <p> <%= image_tag @manufacture.image(:large) %></p>
+    <p> <a href=" <%= @manufacture.link %>"><%= @manufacture.link %></a></p>
+
+
+    <div class="state"><%= @manufacture.description %></div>
+
+
+
+
+</div>
+
+<a href="/manufactures">Назад</a>
+
+<a href="/">to main!</a>
+

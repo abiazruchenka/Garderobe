@@ -1,0 +1,17 @@
+<div class="content">
+    <p><h4 align="center"><%= @item.title %></h4></p>
+
+       <% if !@item.assets[0].nil?%>
+             <%= image_tag @item.assets[0].image(:large) %>
+               <% end %>
+            <div class="state"><%= @item.description %></div>
+    <% if !@item.assets[0].nil?%>
+    <% @item.assets.each do |img| %>
+            <%= image_tag img.image %>
+
+    <% end %>
+    <% end %>
+
+
+</div>
+<a href="http://localhost:3000">to main!</a>

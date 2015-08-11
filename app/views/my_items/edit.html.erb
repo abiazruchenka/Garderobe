@@ -1,0 +1,37 @@
+<div class="form">
+    <%= form_for @my_item, :html => {:multipart => true} do |f| %>
+
+        <p>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </p>
+
+        <p>
+            <%= f.label :description%>
+            <%= f.text_area :description %><br>
+        </p>
+
+        <p>
+            <%= f.label :state %>
+            <%= f.select :state, [['пока нет','grey'],['оригинал', 'mediumspringgreen'], ['качественная реплика', 'yellowgreen'], ["реплика", 'gold'],['не очень','red'],['требуется переделка','orangered'],['в ремонте','rosybrown']]%>
+        </p>
+
+        <p>
+            <%= f.label :price %>
+            <%= f.text_field :price%>
+        </p>
+        <p>
+            <%= f.label :item_id %>
+            <%= f.select :item_id, Item.all.collect {|p| [ p.title, p.id ] } %>
+        </p>
+        <%= f.fields_for :assets do |asset| %>
+
+            <% if asset.object.new_record? %>
+                <%= asset.file_field :image %>
+            <% end %>
+
+        <% end %>
+
+        <p><%= f.submit "Submit" %> </p>
+    <% end %>
+</div>

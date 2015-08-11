@@ -1,0 +1,29 @@
+<div class="form">
+    <%= form_for @item, :html => {:multipart => true} do |f| %>
+
+        <p>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </p>
+
+        <p>
+            <%= f.label :description%>
+            <%= f.text_area :description %><br>
+        </p>
+
+        <p>
+            <%= f.label :have %>
+            <%= f.select :have, [['головной убор',1],['униформа', 2], ['снаряжение',3], ["обувь",4],['оружие',5],['личные вещи',6]]%>
+        </p>
+
+        <%= f.fields_for :assets do |asset| %>
+
+            <% if asset.object.new_record? %>
+                <%= asset.file_field :image %>
+            <% end %>
+
+        <% end %>
+
+        <p><%= f.submit "Submit" %> </p>
+    <% end %>
+</div>

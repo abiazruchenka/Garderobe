@@ -1,0 +1,22 @@
+<div class="content">
+
+    <% @manufacture.each do |manufacture| %>
+      <div class="block">
+          <h4 align ="center"><%= manufacture.name %></h4>
+          <%= manufacture.link %>
+        <div class="images" >
+
+                        <% if !manufacture.nil?%>
+                            <a href="<%= manufacture_path(manufacture.name) %>"><%= image_tag manufacture.image(:small), :class => "style_image" %></a>
+                         <% end %>
+                        <br>
+
+        </div>
+      </div>
+    <% end %>
+
+</div>
+<div class="new_manufacture">
+
+    <a href="/manufactures/new">Новый элемент</a>
+</div>
