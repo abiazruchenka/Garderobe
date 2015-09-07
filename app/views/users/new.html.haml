@@ -1,0 +1,30 @@
+.container
+  .font_overlay
+  .reg_container
+    =form_for(@user,:html =>{:class=>"form-signin"}) do |f|
+      %h2{:class=>"form-signin-heading"}Sign up
+      = f.label :name,:class=>"form-label"
+      = f.text_field :name,:class=>"form-control"
+
+      = f.label :first_name,:class=>"form-label"
+      = f.text_field :first_name,:class=>"form-control"
+
+      = f.label :last_name,:class=>"form-label"
+      = f.text_field :last_name,:class=>"form-control"
+
+      = f.label :gender,:class=>"form-label"
+      %br
+      = f.select(:gender,options_for_select([['Male', "M"], ['Female', "F"]]), :class=>"form-control")
+      %br
+
+      = f.label :email,:class=>"form-label"
+      = f.text_field :email,:class=>"form-control"
+
+      = f.label :password,:class=>"form-label"
+      = f.password_field :password,:class=>"form-control"
+
+      = f.label :password_confirmation, "Confirmation",:class=>"form-label"
+      = f.password_field :password_confirmation,:class=>"form-control"
+      %br
+
+      = f.submit "Create my account", class: "btn btn-lg btn-success btn-block"

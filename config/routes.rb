@@ -2,7 +2,7 @@ Soviet::Application.routes.draw do
   resources :items
   resources :my_items
   resources  :manufactures
-
+  resources :users
 
   get "main/index"
   root :to => 'main#index'
